@@ -605,7 +605,8 @@ class StandbyExtension(base.BaseAgentExtension):
         if self.partition_uuids is None:
             self.partition_uuids = {}
 
-        if image_info.get('image_type') == 'partition':
+        if (image_info.get('image_type') == 'partition'
+                and not image_info.get('stream_raw_images')):
             return
 
         try:
